@@ -49,7 +49,7 @@ let pipeWidth = 50;
 let pipeGap = 200;
 let pipeArray = [];
 let pipeIntervalId;
-let score = 0; // Definimos score
+let score = 0; 
 
 let topPipeImg = new Image();
 topPipeImg.src = "./images/toppipe.png";
@@ -67,7 +67,7 @@ function createPipes() {
     let bottomPipeHeight = boardHeight - topPipeHeight - pipeGap;
 
     let topPipe = {
-        x: boardWidth, // Corregido: Antes era boardHeight
+        x: boardWidth, 
         y: 0,
         width: pipeWidth,
         height: topPipeHeight,
@@ -76,11 +76,11 @@ function createPipes() {
     };
 
     let bottomPipe = {
-        x: boardWidth, // Corregido: Antes era boardHeight
+        x: boardWidth, 
         y: topPipeHeight + pipeGap,
         width: pipeWidth,
         height: bottomPipeHeight,
-        img: bottomPipeImg, // Ahora bottomPipeImg está definido
+        img: bottomPipeImg, 
         passed: false
     };
     pipeArray.push(topPipe, bottomPipe);
@@ -88,7 +88,7 @@ function createPipes() {
 
 window.onload = function () {
     board = document.getElementById("board");
-    board.height = boardHeight; // Corregido de 'heigth' a 'height'
+    board.height = boardHeight; 
     board.width = boardWidth;
     context = board.getContext("2d");
 
@@ -103,7 +103,7 @@ window.onload = function () {
 
 function update() {
     requestAnimationFrame(update);
-    context.clearRect(0, 0, board.width, board.height); // Corregido de 'heigth' a 'height'
+    context.clearRect(0, 0, board.width, board.height); 
 
     if (currentState === GAME_STATE.MENU) {
         renderMenu();
@@ -119,7 +119,7 @@ function renderMenu() {
         context.drawImage(backgroundImg, 0, 0, boardWidth, boardHeight);
     }
     if (playButtonImg.complete) {
-        context.drawImage(playButtonImg, playButton.x, playButton.y, playButton.width, playButton.height); // Corregido de 'heigth' a 'height'
+        context.drawImage(playButtonImg, playButton.x, playButton.y, playButton.width, playButton.height); 
     }
 
     if (flappyBirdTextImg.complete) {
@@ -131,7 +131,7 @@ function renderMenu() {
 
 function renderGame() {
     velocityY += gravity;
-    bird.y = Math.max(bird.y + velocityY, 0); // Corregido: Antes se asignaba un número a bird en lugar de modificar bird.y
+    bird.y = Math.max(bird.y + velocityY, 0); 
 
     if (birdImg.complete) {
         context.drawImage(birdImg, bird.x, bird.y, bird.width, bird.height);
